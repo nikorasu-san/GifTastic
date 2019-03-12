@@ -2,13 +2,13 @@ $(document).ready(function () {
     // global variable
     let clickCounter = 0;
     // default buttons
-    let buttonsArray = ["30 rock", "parks&rec", "drag race", "arrow", "supergirl", "charmed", "umbrella academy", "good girls nbc", "the voice", "american idol", "supernatural", "bob's burgers", "good place", "queer eye"];
-    for (let i = 0; i < buttonsArray.length; i++) {
+    let topics = ["30 rock", "parks&rec", "drag race", "arrow", "supergirl", "charmed", "umbrella academy", "good girls nbc", "the voice", "american idol", "supernatural", "bob's burgers", "good place", "queer eye"];
+    for (let i = 0; i < topics.length; i++) {
         let newButton = $("<button class='term'>");
-        $(newButton).text(buttonsArray[i]);
+        $(newButton).text(topics[i]);
         // $(newButton).attr("data-count", 0)
         $("#buttons").append(newButton);
-        console.log(buttonsArray);
+        console.log(topics);
     }
 
     // Add a new button from user input
@@ -18,15 +18,15 @@ $(document).ready(function () {
         if (newTerm !== "") {
             console.log("term: ", newTerm)
             // push to array and clear buttons div
-            buttonsArray.push(newTerm);
+            topics.push(newTerm);
             $("#field").val("");
             $("#buttons").empty()
             // push the new aray to buttons div
-            for (let i = 0; i < buttonsArray.length; i++) {
+            for (let i = 0; i < topics.length; i++) {
                 let newButton = $("<button class='term'>");
-                $(newButton).text(buttonsArray[i]);
+                $(newButton).text(topics[i]);
                 $("#buttons").append(newButton);
-                console.log(buttonsArray);
+                console.log(topics);
             }
         }
     });
