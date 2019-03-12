@@ -1,7 +1,7 @@
 $(document).ready(function () {
     // global variable
     let clickCounter = 0;
-
+    // default buttons
     let buttonsArray = ["30 rock", "parks&rec", "drag race", "arrow", "supergirl", "charmed", "umbrella academy", "good girls nbc", "the voice", "american idol", "supernatural", "bob's burgers", "good place", "queer eye"];
     for (let i = 0; i < buttonsArray.length; i++) {
         let newButton = $("<button class='term'>");
@@ -11,16 +11,17 @@ $(document).ready(function () {
         console.log(buttonsArray);
     }
 
-    //--- add a new button
-    // capture user input
-    // on click send to array
+    // Add a new button from user input
     $("#add-button").on("click", function () {
+        // capture user input
         let newTerm = $("#field").val();
         if (newTerm !== "") {
             console.log("term: ", newTerm)
+            // push to array and clear buttons div
             buttonsArray.push(newTerm);
             $("#field").val("");
             $("#buttons").empty()
+            // push the new aray to buttons div
             for (let i = 0; i < buttonsArray.length; i++) {
                 let newButton = $("<button class='term'>");
                 $(newButton).text(buttonsArray[i]);
@@ -30,10 +31,12 @@ $(document).ready(function () {
         }
     });
 
+    // Clear Results Button
     $(document).on("click", "#clear", function () {
         $("#gifs").empty();
     });
 
+    // Pulling From Giphy API on button click
     let searchTerm = $(this).text();
     $(document).on("click", ".term", function () {
         console.log(this);
@@ -76,14 +79,13 @@ $(document).ready(function () {
                 let printTitle = $("<p>");
                 let title = "Title: " + results[i].title;
                 $(printTitle).text(title);
-                //$(newImage).append(rating)
-                // append image to page
+                // post image to page, prepend the newImageDiv so that any new 10 sets push to top
                 $(newImageDiv).append(printTitle, printRating, newImage);
-                $("#gifs").append(newImageDiv);
+                $("#gifs").prepend(newImageDiv);
             }
         });
     });
-    // listen for clicks on gifs
+    // Allow clicks to toggle betwen static and animated
     $(document).on("click", ".change-state", function () {
         // grab state
         let currentState = $(this).attr("data-state");
