@@ -9,16 +9,22 @@
 
 #search-area {
     float: right;
-    width: 25%;
+    width: 30%;
     padding-left: 2.5%;
     padding-right: 2.5%;
+    z-index: 2;
 }
 
 #gifs {
     float: left;
-    width: 65%;
+    width: 70%;
     padding-left: 2.5%;
     padding-right: 2.5%;
+    z-index:0;
+}
+
+input {
+    width: 70%;
 }
 
 .term {

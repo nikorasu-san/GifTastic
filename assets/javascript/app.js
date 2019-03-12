@@ -16,17 +16,18 @@ $(document).ready(function () {
     // on click send to array
     $("#add-button").on("click", function () {
         let newTerm = $("#field").val();
-        console.log("term: ", newTerm)
-        buttonsArray.push(newTerm);
-        $("#field").val("");
-        $("#buttons").empty()
-        for (let i = 0; i < buttonsArray.length; i++) {
-            let newButton = $("<button class='term'>");
-            $(newButton).text(buttonsArray[i]);
-            $("#buttons").append(newButton);
-            console.log(buttonsArray);
+        if (newTerm !== "") {
+            console.log("term: ", newTerm)
+            buttonsArray.push(newTerm);
+            $("#field").val("");
+            $("#buttons").empty()
+            for (let i = 0; i < buttonsArray.length; i++) {
+                let newButton = $("<button class='term'>");
+                $(newButton).text(buttonsArray[i]);
+                $("#buttons").append(newButton);
+                console.log(buttonsArray);
+            }
         }
-
     });
 
     $(document).on("click", "#clear", function () {
