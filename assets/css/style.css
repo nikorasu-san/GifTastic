@@ -37,3 +37,18 @@ input {
     background: #4b637e;
     color: white;
 }
+
+div {
+    display: inline;
+    float: inherit;
+}
+
+.result {
+    margin-right: 3px;
+}
+
+@media only screen and (max-width: 980px) {
+    img{
+        width: 80%;
+    }
+}

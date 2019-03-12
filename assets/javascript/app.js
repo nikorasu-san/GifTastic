@@ -67,6 +67,7 @@ $(document).ready(function () {
                 let dataAnimate = $(newImage).attr("data-animate", results[i].images.fixed_height.url);
                 let dataState = $(newImage).attr("data-state", "still");
                 $(newImage).addClass("change-state");
+                $(newImageDiv).addClass("result")
                 // append rating
                 let printRating = $("<p>");
                 let rating = "Rating: " + results[i].rating.toUpperCase();
