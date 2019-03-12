@@ -5,6 +5,7 @@
 #buttons {
     padding-left: 2.5%;
     padding-right: 2.5%;
+    display: block;
 }
 
 #search-area {
@@ -27,16 +28,16 @@ input {
     width: 70%;
 }
 
-.term {
+button {
     background: #4b637e;
     color: white;
     font-size: 15px;
 }
 
-#clear,#add-button {
+/* #clear,#add-button {
     background: #4b637e;
     color: white;
-}
+} */
 
 div {
     display: inline;
@@ -44,7 +45,9 @@ div {
 }
 
 .result {
-    margin-right: 3px;
+    line-height: 1.25em;
+    margin-right: 2%;
+    margin-bottom: 2%;
 }
 
 @media only screen and (max-width: 980px) {

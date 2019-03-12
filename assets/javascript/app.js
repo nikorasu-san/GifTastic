@@ -2,11 +2,11 @@ $(document).ready(function () {
     // global variable
     let clickCounter = 0;
 
-    let buttonsArray = ["30 rock", "parks&rec", "drag race"];
+    let buttonsArray = ["30 rock", "parks&rec", "drag race", "arrow", "supergirl", "charmed", "umbrella academy", "good girls nbc", "the voice", "american idol", "supernatural", "bob's burgers", "good place", "queer eye"];
     for (let i = 0; i < buttonsArray.length; i++) {
         let newButton = $("<button class='term'>");
         $(newButton).text(buttonsArray[i]);
-        $(newButton).attr("data-count", 0)
+        // $(newButton).attr("data-count", 0)
         $("#buttons").append(newButton);
         console.log(buttonsArray);
     }
@@ -72,9 +72,13 @@ $(document).ready(function () {
                 let printRating = $("<p>");
                 let rating = "Rating: " + results[i].rating.toUpperCase();
                 $(printRating).text(rating);
+                // append title
+                let printTitle = $("<p>");
+                let title = "Title: " + results[i].title;
+                $(printTitle).text(title);
                 //$(newImage).append(rating)
                 // append image to page
-                $(newImageDiv).append(printRating, newImage);
+                $(newImageDiv).append(printTitle, printRating, newImage);
                 $("#gifs").append(newImageDiv);
             }
         });
