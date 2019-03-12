@@ -1,0 +1,33 @@
+* {
+    box-sizing: border-box;
+}
+
+#buttons {
+    padding-left: 2.5%;
+    padding-right: 2.5%;
+}
+
+#search-area {
+    float: right;
+    width: 25%;
+    padding-left: 2.5%;
+    padding-right: 2.5%;
+}
+
+#gifs {
+    float: left;
+    width: 65%;
+    padding-left: 2.5%;
+    padding-right: 2.5%;
+}
+
+.term {
+    background: #4b637e;
+    color: white;
+    font-size: 15px;
+}
+
+#clear,#add-button {
+    background: #4b637e;
+    color: white;
+}
