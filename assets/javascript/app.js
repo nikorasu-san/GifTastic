@@ -8,15 +8,13 @@ $(document).ready(function () {
         $(newButton).text(topics[i]);
         // $(newButton).attr("data-count", 0)
         $("#buttons").append(newButton);
-        console.log(topics);
     }
 
     // Add a new button from user input
     $("#add-button").on("click", function () {
-        // capture user input
+        // capture user input if not blank
         let newTerm = $("#field").val();
-        if (newTerm !== "") {
-            console.log("term: ", newTerm)
+        if (newTerm !== "" && newTerm.trim() !== "") {
             // push to array and clear buttons div
             topics.push(newTerm);
             $("#field").val("");
@@ -26,7 +24,6 @@ $(document).ready(function () {
                 let newButton = $("<button class='term'>");
                 $(newButton).text(topics[i]);
                 $("#buttons").append(newButton);
-                console.log(topics);
             }
         }
     });
@@ -39,18 +36,14 @@ $(document).ready(function () {
     // Pulling From Giphy API on button click
     let searchTerm = $(this).text();
     $(document).on("click", ".term", function () {
-        console.log(this);
         let searchTerm = $(this).text();
         let apiKey = "F2lpt1HBohJYediBSjlg9Mlu97wiPcg1";
         let limit = 10;
         // store a click value
-        console.log("clickCount: ", clickCounter)
         let offset = 10 * clickCounter;
-        console.log("off: ", offset)
         clickCounter++;
         // condition to increase offset if button clicked
         let queryURL = "https://api.giphy.com/v1/gifs/search?limit=10&lang=en&fmt=json&api_key=" + apiKey + "&q=" + searchTerm + "&offset=" + offset;
-        console.log(queryURL)
         //ajax call
         $.ajax({
             url: queryURL,
@@ -58,13 +51,11 @@ $(document).ready(function () {
         }).then(function (response) {
             // do this to response
             let results = response.data;
-            console.log(response)
             for (let i = 0; i < results.length; i++) {
                 //create elements
                 let newImage = $("<img>");
                 let newImageDiv = $("<div>");
                 //create attributes
-                console.log("url: ", results[i].images.fixed_height.url);
                 let imageURL = $(newImage).attr("src", results[i].images.fixed_height_still.url);
                 let dataStill = $(newImage).attr("data-still", results[i].images.fixed_height_still.url);
                 let dataAnimate = $(newImage).attr("data-animate", results[i].images.fixed_height.url);
@@ -92,12 +83,10 @@ $(document).ready(function () {
         // conditional on how to react to clicks
         if (currentState === "still") {
             let animateURL = $(this).attr("data-animate");
-            console.log(animateURL)
             $(this).attr("src", animateURL);
             $(this).attr("data-state", "animate");
         } else {
             let stillURL = $(this).attr("data-still");
-            console.log(stillURL);
             $(this).attr("src", stillURL);
             $(this).attr("data-state", "still");
         }
